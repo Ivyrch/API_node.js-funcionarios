@@ -6,8 +6,7 @@ class Funcionarios {
     static usuarios(app) {
         
     
-    app.post("/funcionarios", (req, res) => {
-        // const id = parseInt(req.body.id) 
+    app.post("/funcionarios", (req, res) => {  
         DatabaseMetodos.insertFuncionario( req.body.id, req.body.nome, req.body.sobrenome, req.body.email, req.body.cpf, req.body.turno)
         then((response) => {
             res.status(201).json(response)
@@ -19,3 +18,5 @@ class Funcionarios {
     })
 
 }}
+
+export default Funcionarios
