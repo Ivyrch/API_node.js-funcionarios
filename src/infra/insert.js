@@ -1,3 +1,6 @@
 import DatabaseMetodos from "../DAO/DatabaseMetodos.js"; 
 
-DatabaseMetodos.insertFuncionario(1,"Henrique", "Vieira", "vieirahenrique@gmail.com", 15784950777, "manhã"); 
+await DatabaseMetodos.insertFuncionario(5,"Rodrigo", "Souto", "rodsouto@gmail.com", 67787950557, "noite"); 
+
+
+
