@@ -16,6 +16,17 @@ class Funcionarios {
             })
                
         })
+
+    app.get("/funcionarios/:id", (req,res)=> {
+        DatabaseMetodos.selectID(req, req.params.id)
+        .then((response) => {
+            res.status(201).json(response)
+        })
+        .catch((e) => {
+            res.status(400).json(e)
+        })
+        
+    })
     
     app.post("/funcionarios", (req, res) => {  
         DatabaseMetodos.insertFuncionario( req.body.id, req.body.nome, req.body.sobrenome, req.body.email, req.body.cpf, req.body.turno)
@@ -31,6 +42,18 @@ class Funcionarios {
     app.put("/funcionarios/:id", (req, res) => {  
           
         DatabaseMetodos.updateFuncionario(req, req.params.id)
+        .then((response) => {
+            res.status(201).json(response)
+        })
+        .catch((erro) => {
+            res.status(400).json(erro)
+        })
+           
+    })
+
+    app.delete("/funcionarios/:id", (req, res) => {  
+          
+        DatabaseMetodos.deleteFuncionario(req, req.params.id)
         .then((response) => {
             res.status(201).json(response)
         })

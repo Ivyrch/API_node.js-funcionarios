@@ -48,7 +48,6 @@ class DatabaseMetodos {
     return new Promise((resolve, reject) => {
       Database.run(update_funcionario, [...body, id], (e) => {
         if (e) {
-         console.log(e)
           reject(e);
         } else {
           resolve({ message: "Funcionário alterado com sucesso" });
@@ -57,21 +56,61 @@ class DatabaseMetodos {
     });
   }
 
-  static listarTodos() {
-    const query = `
-            SELECT * FROM usuarios
-            `;
+
+  static deleteFuncionario(req) {   
+    const delete_funcionario = `
+        DELETE FROM funcionarios WHERE id = ?
+        `
+        const id = req.params.id
+
     return new Promise((resolve, reject) => {
-      Database.all(query, (e, rows) => {
+      Database.run(delete_funcionario, id, (e) => {
         if (e) {
           reject(e);
         } else {
-          resolve({ usuarios: rows });
+          resolve({ message: "Funcionário deletado com sucesso" });
+        }
+      })
+    });
+  }
+
+
+  static listarTodos() {
+    const todosFuncionarios = `
+            SELECT * FROM funcionarios
+            `;
+    return new Promise((resolve, reject) => {
+      Database.all(todosFuncionarios, (e, rows) => {
+        if (e) {
+          reject(e);
+        } else {
+          resolve({ funcionarios: rows });
+        }
+      });
+    });
+  }
+
+
+  static selectID(req) {
+    
+    const selectPorId = `SELECT * FROM funcionarios WHERE id =?`
+
+    const id = req.params.id 
+
+    return new Promise((resolve, reject) => {
+      Database.all(selectPorId, id, (e, rows) => {
+        if (e) {       
+          reject(e);
+        } else {
+          resolve({ funcionarios: rows });
         }
       });
     });
   }
 }
+
+
+
 
 DatabaseMetodos.createTable();
 
