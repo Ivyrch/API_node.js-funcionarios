@@ -1,5 +1,6 @@
 class FuncionariosModel { 
-    constructor(nome, sobrenome, email, cpf, turno) { 
+    constructor(id, nome, sobrenome, email, cpf, turno) { 
+        this.id = id,
         this.nome = nome, 
         this.sobrenome = sobrenome, 
         this.email = email,
