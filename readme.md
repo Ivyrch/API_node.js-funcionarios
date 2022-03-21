@@ -32,7 +32,7 @@ npm start
 
 [GET] /funcionarios/:id - A rota lista o funcionário baseado no ID. 
 
-[POST] /funcionarios/create - A rota cria um quarto com as informações passadas no body da requisição. 
+[POST] /funcionarios/post - A rota cria um novo funcionário com as informações passadas no body da requisição. 
 
 Exemplo de criação: 
 ````
