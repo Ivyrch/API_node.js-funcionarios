@@ -39,10 +39,10 @@ Exemplo de criação:
 {   
    "id:" 8,
    "nome": "Ivy",
-	"sobrenome": "Richa",
-	"email": iricha@gmail.com,
-	"cpf": 18763896508,
-	"turno": "Noite",
+   "sobrenome": "Richa",
+   "email": iricha@gmail.com,
+    "cpf": 18763896508,
+    "turno": "Noite",
     
 }
 
